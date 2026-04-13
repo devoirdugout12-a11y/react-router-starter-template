@@ -1,0 +1,121 @@
+/* auth-neon.css - UI Authentification Bakatiket */
+
+:root {
+    --primary: #00FF88;
+    --secondary: #6C3EE8;
+    --error: #FF4444;
+    --accent: #FFD700;
+    --dark: #0D0D1A;
+    --glass: rgba(22, 22, 43, 0.75);
+}
+
+.auth-bg {
+    background: linear-gradient(rgba(13, 13, 26, 0.8), rgba(13, 13, 26, 0.9)),
+                url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.auth-card {
+    background: var(--glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.tab-btn {
+    position: relative;
+    padding-bottom: 8px;
+    transition: all 0.3s ease;
+    color: #B0B3C8;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 3px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    border-radius: 10px;
+}
+
+.neon-input {
+    background: rgba(13, 13, 26, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.neon-input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.neon-btn {
+    background: linear-gradient(135deg, var(--primary), #00D1FF);
+    color: var(--dark);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+.neon-btn:hover {
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.6);
+}
+
+.neon-btn:active {
+    transform: scale(0.98);
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: var(--primary);
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(2px);
+    animation: floatParticle var(--duration) linear infinite;
+}
+
+@keyframes floatParticle {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin - Bakatiket Stats</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/neon-congo.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00FF88',
+                        secondary: '#6C3EE8',
+                        dark: '#0D0D1A',
+                        surface: '#16162B',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen p-8">
+
+    <nav class="flex justify-between items-center mb-12">
+        <h1 class="text-2xl font-black neon-text">BAKATIKET ADMIN 🕶️</h1>
+        <button onclick="window.location.href='index.html'" class="text-text-secondary hover:text-white">Se déconnecter</button>
+    </nav>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Stat 1 -->
+        <div class="glass-card p-8 rounded-3xl border-t-4 border-primary">
+            <h3 class="text-text-secondary font-bold text-sm uppercase mb-4">Revenus Totaux</h3>
+            <div class="text-4xl font-extrabold text-primary">12.500.000 FCFA</div>
+            <p class="text-xs text-text-secondary mt-2">+15% ce mois-ci</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="glass-card p-8 rounded-3xl border-t-4 border-secondary">
+            <h3 class="text-text-secondary font-bold text-sm uppercase mb-4">Commissions Bakatiket (12%)</h3>
+            <div class="text-4xl font-extrabold text-secondary">1.500.000 FCFA</div>
+            <p class="text-xs text-text-secondary mt-2">Revenu passif généré</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="glass-card p-8 rounded-3xl border-t-4 border-yellow-400">
+            <h3 class="text-text-secondary font-bold text-sm uppercase mb-4">Partenaires Actifs</h3>
+            <div class="text-4xl font-extrabold text-white">24</div>
+            <p class="text-xs text-text-secondary mt-2">Airtel Money & MTN</p>
+        </div>
+    </div>
+
+    <div class="mt-12 glass-card p-8 rounded-3xl">
+        <h2 class="text-xl font-bold mb-6">Dernières Transactions</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="text-text-secondary text-sm border-b border-white/5">
+                        <th class="py-4">Événement</th>
+                        <th class="py-4">Partenaire</th>
+                        <th class="py-4">Vente</th>
+                        <th class="py-4">Commission (12%)</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-b border-white/5">
+                        <td class="py-4">Concert Fally Ipupa</td>
+                        <td class="py-4">Airtel Partner</td>
+                        <td class="py-4">50.000 FCFA</td>
+                        <td class="py-4 text-primary font-bold">6.000 FCFA</td>
+                    </tr>
+                    <tr class="border-b border-white/5">
+                        <td class="py-4">Afterwork VIP Pointe-Noire</td>
+                        <td class="py-4">MTN Partner</td>
+                        <td class="py-4">15.000 FCFA</td>
+                        <td class="py-4 text-primary font-bold">1.800 FCFA</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
