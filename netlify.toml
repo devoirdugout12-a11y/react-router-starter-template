@@ -1,0 +1,8 @@
+[build]
+  command = "flutter pub get && flutter build web --release --base-href '/'"
+  publish = "build/web"
+
+[[headers]]
+  for = "index.html"
+  [headers.values]
+    cache-control = "no-cache"

@@ -1,0 +1,38 @@
+Crée une app Flutter complète "Bakatiket" pour réservation tickets événements (concerts, spectacles, afterworks au Congo). 
+
+**Tech stack** : Flutter 3.x, Firebase (Auth, Realtime DB avec ces règles exactes [colle le JSON rules corrigé ci-dessus], Storage pour photos).
+
+**Rôles/Users (Firebase Auth)** :
+- Superadmin : Tous accès, dashboard stats (tickets/jour), liste partenaires, messages groupés, retraits.
+- Partenaire : Crée événement (type, date, lieu, prix FCFA, desc, places dispo, 3 photos URL, lien partage), dashboard (tickets vendus/somme 88%, retraits).
+- Client : Browse événements publiés, réserve (nom/tel/email), dashboard réservations (annuler avant date, QR code), partage.
+
+**Fonctionnalités clés** :
+1. Splash > Login/Register (email/phone) > Role-based home.
+2. Événements list (cards avec photos, places/prix), filtre type/date.
+3. Partenaire : +Event form > Upload 3 images Firebase Storage > Publier.
+4. Réservation : Formulaire > Génère QR (qrcode: nom_evenement|date|nom_client|prix, chiffé simple) > Mock paiement Mobile Money > Envoi mock email/WhatsApp > Update DB atomic via Functions stub.
+5. Dashboards : Charts (tickets vendus), listes, boutons retrait/message.
+6. Superadmin : CRUD partenaires/événements, stats globales (12% commission), messages groupés.
+
+**DB Structure exacte** [colle la structure JSON de ma réponse précédente](https://baka-ticket-2026-default-rtdb.firebaseio.com/).
+
+**UI/Design** : Material3, couleurs Congo (vert/jaune/rouge), glassmorphism, responsive mobile.
+
+**Packages** : firebase_core, firebase_auth, firebase_database, firebase_storage, qr_flutter, share_plus, intl (dates), fl_chart (stats), image_picker.
+
+**Sécurité** : Utilise rules fournies. Cloud Functions stubs pour write reservations (atomic: places--, QR, soldes).
+
+**Étapes agent** :
+1. Init Flutter project "bakatiket".
+2. Ajoute packages pubspec.yaml, get.
+3. Setup Firebase (android/ios configs).
+4. Models (User, Evenement, Reservation).
+5. AuthService, DatabaseService (read/write/query).
+6. Screens : Auth, Home (role switch), EvenementsList, CreateEvent, DashboardPartenaire/Client/Admin, ReservationForm.
+7. QR generator service.
+8. Main app routing (GoRouter).
+9. Test run sur émulateur, hot reload.
+10. Commit git, génère APK debug.
+
+Génère code propre, state management Riverpod, error handling, loading spinners. MVP fonctionnel en 1h !
