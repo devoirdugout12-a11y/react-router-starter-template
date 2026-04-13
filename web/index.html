@@ -1,46 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
   <base href="$FLUTTER_BASE_HREF">
-
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- iOS meta tags & icons -->
+  <!-- SEO -->
+  <title>Bakatiket 🎟️ - Billetterie #1 au Congo</title>
+  <meta name="description" content="Réservez vos billets pour les meilleurs événements à Pointe-Noire, Brazzaville et dans toute la République du Congo. Paiement Mobile Money Airtel & MTN.">
+  <meta name="keywords" content="bakatiket, billetterie, congo, pointe-noire, brazzaville, événements, tickets, airtel money, mtn mobile money">
+  <meta name="author" content="Bakatiket">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bakatiket - Billetterie #1 au Congo 🇨🇬">
+  <meta property="og:description" content="Réservez vos billets pour les meilleurs événements au Congo. Paiement Mobile Money.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bakatiket.cg">
+  <meta property="og:image" content="https://bakatiket.cg/icons/Icon-512.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bakatiket 🎟️ Congo">
+  <meta name="twitter:description" content="Billetterie événementielle #1 au Congo">
+
+  <!-- PWA -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="bakatiket">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Bakatiket">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>bakatiket</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Google Fonts preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBAKATIKET-WEB-KEY-REPLACE-ME",
+      authDomain: "baka-ticket-2026.firebaseapp.com",
+      databaseURL: "https://baka-ticket-2026-default-rtdb.firebaseio.com",
+      projectId: "baka-ticket-2026",
+      storageBucket: "baka-ticket-2026.appspot.com",
+      messagingSenderId: "000000000000",
+      appId: "1:000000000000:web:bakatiket000000000000"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.firebaseApp = app;
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #0D0D1A;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Splash screen pendant le chargement Flutter */
+    #splash {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #0D0D1A 0%, #1A0A3E 50%, #0D0D1A 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+
+    #splash.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .splash-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #6C3EE8, #AB6FF8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .splash-sub {
+      color: #B0B3C8;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .splash-loader {
+      width: 48px;
+      height: 48px;
+      border: 3px solid rgba(108, 62, 232, 0.2);
+      border-top-color: #6C3EE8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    .splash-flags {
+      margin-top: 24px;
+      font-size: 24px;
+      animation: bounce 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-8px); }
+    }
+  </style>
 </head>
 <body>
-  <!--
-    You can customize the "flutter_bootstrap.js" script.
-    This is useful to provide a custom configuration to the Flutter loader
-    or to give the user feedback during the initialization process.
 
-    For more details:
-    * https://docs.flutter.dev/platform-integration/web/initialization
-  -->
+  <!-- Splash Screen -->
+  <div id="splash">
+    <div class="splash-logo">BAKA🎟️TIKET</div>
+    <div class="splash-sub">Billetterie #1 au Congo 🇨🇬</div>
+    <div class="splash-loader"></div>
+    <div class="splash-flags">🎵 🎶 🎤</div>
+  </div>
+
+  <script>
+    // Cacher le splash quand Flutter est prêt
+    window.addEventListener('flutter-first-frame', function() {
+      const splash = document.getElementById('splash');
+      if (splash) {
+        splash.classList.add('hidden');
+        setTimeout(() => splash.remove(), 600);
+      }
+    });
+  </script>
+
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
