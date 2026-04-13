@@ -1,17 +1,27 @@
-# bakatiket
+# Bakatiket.cg - Billetterie Numérique Congo 🇨🇬
 
-A new Flutter project.
+Plateforme autonome de billetterie événementielle pour Pointe-Noire et Brazzaville.
 
-## Getting Started
+## 🚀 Technologie (Stack Statut)
+- **Framework** : Static (HTML5 / Tailwind CSS via CDN)
+- **Base de données** : Firebase Realtime DB (`baka-ticket-2026`)
+- **Hébergement** : Cloudflare Pages
+- **Photos** : Cloudinary
+- **Performance** : Optimisé pour le réseau 4G Congo (Mobile-first)
 
-This project is a starting point for a Flutter application.
+## 🏗️ Structure
+- `dist/index.html` : Accueil (Featured events realtime)
+- `dist/partner-dashboard.html` : Formulaire autonome pour les créateurs d'événements
+- `dist/js/firebase.js` : Logique de connexion DB
+- `dist/css/neon-congo.css` : Design High-Energy / Neon style
 
-A few resources to get you started if this is your first Flutter project:
+## 💰 Logique Partenaires
+- **Commission** : 12% Bakatiket / 88% Partenaire
+- **Paiement** : Split automatique via Mobile Money (Airtel/MTN)
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## 📡 Déploiement
+Le projet est déployé automatiquement via Cloudflare Pages dès qu'un push est effectué sur la branche `master`.
+Lien Live : [https://9c24ff07.bakatiket.pages.dev/](https://9c24ff07.bakatiket.pages.dev/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+*Bakatiket - Rendre les événements autonomes au Congo.*
