@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-cyan: #0ff;
+  --color-neon-pink: #f0f;
+  --color-neon-blue: #00f;
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+:root {
+  --font-inter: "Inter", sans-serif;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #03030b;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  color: #fff;
+  font-family: var(--font-inter);
+  min-height: 100vh;
+}
+
+.glass {
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.neon-border {
+  border: 1px solid var(--color-neon-cyan);
+  box-shadow: 0 0 10px var(--color-neon-cyan);
+}
+
+.neon-text-cyan {
+  color: var(--color-neon-cyan);
+  text-shadow: 0 0 5px var(--color-neon-cyan);
+}
+
+.neon-text-pink {
+  color: var(--color-neon-pink);
+  text-shadow: 0 0 5px var(--color-neon-pink);
+}
+
+.btn-premium {
+  @apply px-6 py-3 rounded-full font-bold transition-all duration-300;
+  background: linear-gradient(45deg, #0ff, #00f);
+  color: #000;
+}
+
+.btn-premium:hover {
+  box-shadow: 0 0 20px #0ff;
+  transform: scale(1.05);
+}
